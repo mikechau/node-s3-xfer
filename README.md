@@ -43,8 +43,6 @@ Well - not so fast! We probably want to upload the hashed assets first and then
 the html files. It wouldn't be nice for our users to load the new `index.html`
 and then end up requesting a bundle that wasn't uploaded yet.
 
-We also probably want to set the right `ContentType` for files like `*.woff2`.
-
 **s3-xfer** is a wrapper around the AWS SDK's S3 `ManagedUpload`. Pass it
 a config and it will do the rest.
 
