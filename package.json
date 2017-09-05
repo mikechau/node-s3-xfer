@@ -1,7 +1,7 @@
 {
   "name": "node-s3-xfer",
   "version": "0.0.1",
-  "description": "Push files to S3.",
+  "description": "Transfer files to S3.",
   "main": "index.js",
   "scripts": {
     "test": "jest",
@@ -14,7 +14,9 @@
   },
   "keywords": [
     "s3",
-    "aws"
+    "aws",
+    "uploading",
+    "node"
   ],
   "author": "@mikechau",
   "license": "MIT",
