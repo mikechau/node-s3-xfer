@@ -27,7 +27,6 @@
   "dependencies": {
     "aws-sdk": "^2.108.0",
     "glob": "^7.1.2",
-    "glob-stream": "^6.1.0",
     "lodash.isfunction": "^3.0.8",
     "mime-types": "^2.1.17",
     "rimraf": "^2.6.1",
