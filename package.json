@@ -1,5 +1,5 @@
 {
-  "name": "node-s3-xfer",
+  "name": "s3-xfer",
   "version": "0.0.1",
   "description": "Transfer files to S3.",
   "main": "index.js",

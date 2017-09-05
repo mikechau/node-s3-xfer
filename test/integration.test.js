@@ -16,7 +16,7 @@ function buildExpectedOutput(tag, filePaths) {
   });
 }
 
-describe('node-s3-xfer', () => {
+describe('s3-xfer', () => {
   it('uploads files to S3', done => {
     var cmd = 'node ./example/deploy.js';
     exec(cmd, function(err, stdout, stderr) {
