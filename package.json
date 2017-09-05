@@ -1,6 +1,6 @@
 {
   "name": "s3-xfer",
-  "version": "0.2.5",
+  "version": "0.3.0",
   "description": "Transfer files to S3.",
   "main": "index.js",
   "files": [
