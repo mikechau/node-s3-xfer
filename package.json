@@ -3,6 +3,10 @@
   "version": "0.0.1",
   "description": "Transfer files to S3.",
   "main": "index.js",
+  "files": [
+    "index.js",
+    "lib"
+  ],
   "scripts": {
     "test": "jest",
     "test:watch": "jest --verbose --watch --lastCommit --bail",
