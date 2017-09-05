@@ -17,7 +17,7 @@ module.exports = [
     path: path.join(__dirname, 'build'),
     matcher: '**/*',
     s3: {
-      bucket: 'test'
+      Bucket: 'test'
     }
   },
   {
@@ -30,7 +30,7 @@ module.exports = [
     matcher:
       '{asset-manifest.json,favicon.ico,manifest.json,service-worker.js}',
     s3: {
-      bucket: 'test'
+      Bucket: 'test'
     }
   },
   {
@@ -42,7 +42,7 @@ module.exports = [
     path: path.join(__dirname, 'build'),
     matcher: '**/*.html',
     s3: {
-      bucket: 'test'
+      Bucket: 'test'
     }
   }
 ];
