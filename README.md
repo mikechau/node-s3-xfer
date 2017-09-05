@@ -85,6 +85,7 @@ xfer(xferConfigs, workerConfig);
       initialization of the S3 client. Must be defined or `s3ClientPath`.
     - `s3ClientPath`: `String` - *conditional*, the absolute path to a
       node module that exports a s3 client. Must be defined or `aws`.
+- `cb`: `function` - *optional*, a callback function that will get called when all uploads are completed.
 
 ## Configuration
 
