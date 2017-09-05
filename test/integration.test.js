@@ -28,32 +28,34 @@ describe('node-s3-xfer', () => {
         var basePath = path.join(__dirname, 'sample', 'build');
         var results = stdout.split('\n');
 
-        var baseExpectedOutput = [''];
-
-        var generalAssets = buildExpectedOutput('[General Assets]', [
-          'static/fonts/fonts.ttf',
-          'static/js/js.js',
-          'static/images/img.jpeg',
-          'static/images/img.gif',
-          'static/media/video.mp4',
-          'static/fonts/font.woff2',
-          'static/media/song.mp3'
+        var generalAssets = buildExpectedOutput('[General Assets]:', [
+          'static/fonts/font.123.ttf',
+          'static/js/js.101010.js',
+          'static/images/img.z9000.jpeg',
+          'static/images/img.zyx.gif',
+          'static/media/video.abc101.mp4',
+          'static/fonts/font.abc.woff2',
+          'static/media/song.xyz1.mp3',
+          'main.abc123.js'
         ]);
 
-        var fixedAssets = buildExpectedOutput('[Fixed Assets]', [
+        var fixedAssets = buildExpectedOutput('[Fixed Assets]:', [
           'asset-manifest.json',
           'manifest.json',
           'favicon.ico',
           'service-worker.js'
         ]);
 
-        var htmlAssets = buildExpectedOutput('[HTML]', [
+        var htmlAssets = buildExpectedOutput('[HTML]:', [
           'subdir/index.html',
           'index.html'
         ]);
 
-        var expectedOutput =
-          baseExpectedOutput + generalAssets + fixedAssets + htmlAssets;
+        var expectedOutput = [''].concat(
+          generalAssets,
+          fixedAssets,
+          htmlAssets
+        );
 
         expect(results.sort()).toEqual(expectedOutput.sort());
         done();
