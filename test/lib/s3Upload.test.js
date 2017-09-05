@@ -8,7 +8,7 @@ describe('s3Upload', () => {
     AWS.restore();
   });
 
-  it('uploads index.html with the text/html content type', (done) => {
+  it('uploads index.html with the text/html content type', done => {
     AWS.mock('S3', 'upload', function(params, callback) {
       callback(null, {
         ETag: [params.Bucket, params.Key, 'ETAG'].join('-'),
@@ -36,21 +36,23 @@ describe('s3Upload', () => {
       filePath: sampleIndexPath
     };
 
-    s3Upload(s3, uploadParams).then(function(data) {
-      expect(data).toMatchObject({
-        Bucket: 'test',
-        Key: 'pass',
-        ContentType: 'text/html',
-        ServerSideEncryption: 'AES256'
-      });
+    s3Upload(s3, uploadParams)
+      .then(function(data) {
+        expect(data).toMatchObject({
+          Bucket: 'test',
+          Key: 'pass',
+          ContentType: 'text/html',
+          ServerSideEncryption: 'AES256'
+        });
 
-      done();
-    }).catch(function(err) {
-      done.fail(err);
-    });
+        done();
+      })
+      .catch(function(err) {
+        done.fail(err);
+      });
   });
 
-  it('fails when file does not exist', (done) => {
+  it('fails when file does not exist', done => {
     var sampleIndexPath = path.join(__dirname, '../404/index.html');
 
     var uploadParams = {
@@ -62,15 +64,17 @@ describe('s3Upload', () => {
       filePath: sampleIndexPath
     };
 
-    s3Upload({}, uploadParams).then(function() {
-      done.fail('Expected a path that does not exist.');
-    }).catch(function(err) {
-      try {
-        expect(err.message).toContain('ENOENT: no such file or directory,');
-        done();
-      } catch(e) {
-        done.fail(e);
-      }
-    });
+    s3Upload({}, uploadParams)
+      .then(function() {
+        done.fail('Expected a path that does not exist.');
+      })
+      .catch(function(err) {
+        try {
+          expect(err.message).toContain('ENOENT: no such file or directory,');
+          done();
+        } catch (e) {
+          done.fail(e);
+        }
+      });
   });
 });
