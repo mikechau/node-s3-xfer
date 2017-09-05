@@ -6,4 +6,4 @@ var s3 = new AWS.S3({
 var xfer = require('../index');
 var configs = require('../test/sample/s3.xfer.config');
 
-xfer(s3, configs);
+xfer(s3, configs, true);

@@ -15,7 +15,10 @@ module.exports = [
       ]
     },
     path: path.join(__dirname, 'build'),
-    matcher: '**/*'
+    matcher: '**/*',
+    s3: {
+      bucket: 'test'
+    }
   },
   {
     name: 'Fixed Assets',
@@ -24,7 +27,10 @@ module.exports = [
       allowEmpty: true
     },
     path: path.join(__dirname, 'build'),
-    matcher: '{asset-manifest.json,favicon.ico,manifest.json,service-worker.js}'
+    matcher: '{asset-manifest.json,favicon.ico,manifest.json,service-worker.js}',
+    s3: {
+      bucket: 'test'
+    }
   },
   {
     name: 'HTML',
@@ -33,6 +39,9 @@ module.exports = [
       allowEmpty: true
     },
     path: path.join(__dirname, 'build'),
-    matcher: '**/*.html'
+    matcher: '**/*.html',
+    s3: {
+      bucket: 'test'
+    }
   }
 ];
