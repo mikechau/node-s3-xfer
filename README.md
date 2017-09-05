@@ -56,9 +56,11 @@ Code examples available in [example](./example).
 var xfer = require('s3-xfer');
 var xferConfigs = require('./xferConfigs');
 
-var s3ClientPath = '/local/myS3ClientModule.js';
+var workerConfig = {
+  s3ClientPath: '/local/myS3Client.js'
+};
 
-xfer(s3ClientPath, xferConfigs);
+xfer(xferConfigs, workerConfig);
 
 // Output:
 //  [General Assets]: /example/s3-xfer/test/sample/build/main.abc123.js to s3/test/main.abc123.js
@@ -77,8 +79,12 @@ xfer(s3ClientPath, xferConfigs);
 //  [HTML]: /example/s3-xfer/test/sample/build/subdir/index.html to s3/test/subdir/index.html
 ```
 
-- `s3ClientPath`: `String`, the path to a module that exports your AWS S3 client. Export a object with `upload` to mock the uploading capability.
-- `xferConfigs`: `Array`, an array that describes a list of **s3-xfer** configs.
+- `xferConfigs`: `Array`, an array that describes a list of **s3-xfer** configs. See [Configuration](#Configuration) for more details.
+- `workerConfig`: `Object` - *optional*, a object with the following attributes:
+    - `aws`: `Object` - *conditional*, a object for configuring the
+      initialization of the S3 client. Must be defined or `s3ClientPath`.
+    - `s3ClientPath`: `String` - *conditional*, the absolute path to a
+      node module that exports a s3 client. Must be defined or `aws`.
 
 ## Configuration
 
@@ -141,8 +147,8 @@ The filepaths for *General Assets* will be retrieved, then uploaded. After it is
 
 A configuration is composed of:
 
-- `name`: `String`, user readable identifier for the configuration
-- `glob`: `Object`, a configuration object that is passed to [glob](https://github.com/isaacs/node-glob)
-- `path`: `String`, path to the target folder to upload files from
-- `matcher`: `String`, the glob to append to the path that is passed to [glob](https://github.com/isaacs/node-glob)
-- `s3`: `Object`, a object that is merged with other params to the [s3 upload function](http://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/S3.html#upload-property)
+- `name`: `String`, user readable identifier for the configuration.
+- `glob`: `Object`, a configuration object that is passed to [glob](https://github.com/isaacs/node-glob).
+- `path`: `String`, path to the target folder to upload files from.
+- `matcher`: `String`, the glob to append to the path that is passed to [glob](https://github.com/isaacs/node-glob).
+- `s3`: `Object`, a object that is merged with other params to the [s3 upload function](http://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/S3.html#upload-property).
