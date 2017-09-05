@@ -1,0 +1,40 @@
+{
+  "name": "node-s3-xfer",
+  "version": "0.0.1",
+  "description": "Push files to S3.",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "test:watch": "jest --verbose --watch --lastCommit --bail",
+    "format": "prettier --single-quote es5 --write '{example,lib,test}/**/*.js' 'index.js'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mikechau/node-s3-xfer.git"
+  },
+  "keywords": [
+    "s3",
+    "aws"
+  ],
+  "author": "@mikechau",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mikechau/node-s3-xfer/issues"
+  },
+  "homepage": "https://github.com/mikechau/node-s3-xfer#readme",
+  "dependencies": {
+    "aws-sdk": "^2.108.0",
+    "glob": "^7.1.2",
+    "glob-stream": "^6.1.0",
+    "lodash.isfunction": "^3.0.8",
+    "mime-types": "^2.1.17",
+    "rimraf": "^2.6.1",
+    "worker-farm": "^1.5.0"
+  },
+  "devDependencies": {
+    "aws-sdk-mock": "^1.7.0",
+    "jest": "^20.0.4",
+    "prettier": "^1.6.1",
+    "rewire": "^2.5.2"
+  }
+}
