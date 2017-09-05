@@ -11,14 +11,14 @@ describe('getFilePaths', () => {
 
     expect(results.sort()).toEqual(
       [
-        path.join(config[0].path, 'main.js'),
-        path.join(config[0].path, 'static/fonts/font.ttf'),
-        path.join(config[0].path, 'static/fonts/font.woff2'),
-        path.join(config[0].path, 'static/images/img.gif'),
-        path.join(config[0].path, 'static/images/img.jpeg'),
-        path.join(config[0].path, 'static/js/js.js'),
-        path.join(config[0].path, 'static/media/song.mp3'),
-        path.join(config[0].path, 'static/media/video.mp4')
+        path.join(config[0].path, 'main.abc123.js'),
+        path.join(config[0].path, 'static/fonts/font.123.ttf'),
+        path.join(config[0].path, 'static/fonts/font.abc.woff2'),
+        path.join(config[0].path, 'static/images/img.zyx.gif'),
+        path.join(config[0].path, 'static/images/img.z9000.jpeg'),
+        path.join(config[0].path, 'static/js/js.101010.js'),
+        path.join(config[0].path, 'static/media/song.xyz1.mp3'),
+        path.join(config[0].path, 'static/media/video.abc101.mp4')
       ].sort()
     );
   });
