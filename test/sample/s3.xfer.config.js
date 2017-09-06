@@ -1,3 +1,5 @@
+'use strict';
+
 var path = require('path');
 
 module.exports = [
@@ -18,7 +20,8 @@ module.exports = [
     matcher: '**/*',
     s3: {
       Bucket: 'test'
-    }
+    },
+    s3Prefix: 'moo/v1'
   },
   {
     name: 'Fixed Assets',

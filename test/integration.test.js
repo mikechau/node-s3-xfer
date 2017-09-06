@@ -5,13 +5,13 @@ var exec = child_process.exec;
 var SAMPLE_BUILD_PATH = path.join(__dirname, 'sample', 'build');
 var MOCK_LOCATION_PATH = 's3.location.mock/test';
 
-function buildExpectedOutput(tag, filePaths) {
+function buildExpectedOutput(tag, prefix, filePaths) {
   return filePaths.map(function(fp) {
     return [
       tag,
       path.join(SAMPLE_BUILD_PATH, fp),
       'to',
-      path.join(MOCK_LOCATION_PATH, fp)
+      path.join(MOCK_LOCATION_PATH, prefix, fp)
     ].join(' ');
   });
 }
@@ -28,7 +28,7 @@ describe('s3-xfer', () => {
         var basePath = path.join(__dirname, 'sample', 'build');
         var results = stdout.split('\n');
 
-        var generalAssets = buildExpectedOutput('[General Assets]:', [
+        var generalAssets = buildExpectedOutput('[General Assets]:', 'moo/v1', [
           'static/fonts/font.123.ttf',
           'static/js/js.101010.js',
           'static/images/img.z9000.jpeg',
@@ -39,14 +39,14 @@ describe('s3-xfer', () => {
           'main.abc123.js'
         ]);
 
-        var fixedAssets = buildExpectedOutput('[Fixed Assets]:', [
+        var fixedAssets = buildExpectedOutput('[Fixed Assets]:', '', [
           'asset-manifest.json',
           'manifest.json',
           'favicon.ico',
           'service-worker.js'
         ]);
 
-        var htmlAssets = buildExpectedOutput('[HTML]:', [
+        var htmlAssets = buildExpectedOutput('[HTML]:', '', [
           'subdir/index.html',
           'index.html'
         ]);

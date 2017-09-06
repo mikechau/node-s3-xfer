@@ -151,3 +151,4 @@ A configuration is composed of:
 - `path`: `String`, path to the target folder to upload files from.
 - `matcher`: `String`, the glob to append to the path that is passed to [glob](https://github.com/isaacs/node-glob).
 - `s3`: `Object`, a object that is merged with other params to the [s3 upload function](http://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/S3.html#upload-property).
+- `s3Prefix`: `String`, gets placed in front of the S3 key.
