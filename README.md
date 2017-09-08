@@ -1,5 +1,8 @@
 # s3-xfer
 
+[![npm version](https://badge.fury.io/js/s3-xfer.svg)](https://badge.fury.io/js/s3-xfer) [![Dependency Status](https://david-dm.org/mikechau/s3-xfer.svg)](https://david-dm.org/mikechau/s3-xfer) [![devDependency Status](https://david-dm.org/mikechau/s3-xfer/dev-status.svg)](https://david-dm.org/mikechau/s3-xfer#info=devDependencies)
+
+
 This is a node module for uploading assets to S3 in an ordered way.
 
 ## Features
